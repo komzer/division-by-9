@@ -51,6 +51,9 @@ namespace YourNamespace
         if(primer.Count>0){
             foreach (var i in primer){
                     nomer1 =Swap( nomer,  i, answer);  // тут складываем числа и проверяем деление на 9 
+                    if(answer.Count>0 && answer[answer.Count-1].Length < nomer1.Length ){
+                                  break;
+                    }
                     var primer3 = new List<string>(primer); // локальный список создаем и убираем цифру, которую солжили
                     primer3.Remove(i);
                     Generate(primer3, nomer1 ,answer );  // рекурсия без отработанного числа
@@ -61,6 +64,7 @@ namespace YourNamespace
         static string Swap( string a,  string b, List<string> answer)
         {
             string nomer = a + b; 
+          //  int g = Convert.ToInt32(answer.Last());
             int m = Convert.ToInt32(nomer);// пришлось поставить  long, что б число влезало, но это не особо помогло, все равно зависает.
             if ( m%9 == 0){
                 answer.Add(nomer); // если делется, то заносим в список "Ответы"
