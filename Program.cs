@@ -61,7 +61,7 @@ namespace YourNamespace
         static string Swap( string a,  string b, List<string> answer)
         {
             string nomer = a + b; 
-            long m = Convert.ToInt64(nomer);
+            long m = Convert.ToInt64(nomer);// пришлось поставить  long, что б число влезало, но это не особо помогло, все равно зависает.
             if ( m%9 == 0){
                 answer.Add(nomer); // если делется, то заносим в список "Ответы"
             }
